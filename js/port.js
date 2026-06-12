@@ -105,9 +105,10 @@ const Port = {
       </div>`;
   },
 
-  qbtns(tpl, amounts) {
+  qbtns(tpl, amounts, sell = false) {
     return amounts.map(n =>
-      `<button class="btn btn-small" onclick="${tpl.replace("%n", n)}">${n === -1 ? EZ("Max", "最大") : "+" + n}</button>`).join("");
+      `<button class="btn btn-small" onclick="${tpl.replace("%n", n)}">${
+        n === -1 ? (sell ? EZ("All", "全部") : EZ("Max", "最大")) : (sell ? "−" : "+") + n}</button>`).join("");
   },
 
   buySupply(kind, qty) {
@@ -165,7 +166,7 @@ const Port = {
         <td>${L(DATA.GOOD[id].name)} ${wanted ? `<span class="tag-want">${EZ("in demand!", "热销！")}</span>` : ""}</td>
         <td class="${profitCls}">🪙${sp}</td>
         <td class="dim">${EZ("paid ~", "成本约")}${Math.round(avg)}</td><td>${c.qty}</td>
-        <td>${this.qbtns(`Port.sellGood('${id}',%n)`, [1, 10, -1])}</td></tr>`;
+        <td>${this.qbtns(`Port.sellGood('${id}',%n)`, [1, 10, -1], true)}</td></tr>`;
     }
     UI.el("port-body").innerHTML = `
       <div class="panel-cols">
