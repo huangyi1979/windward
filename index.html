@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windward — A Tale of the Meridian Sea</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ======== TITLE SCREEN ======== -->
+<div id="title-screen">
+  <div class="title-box">
+    <div class="lang-row">
+      <button class="lang-btn" data-lang="en">English</button>
+      <button class="lang-btn" data-lang="zh">中文</button>
+    </div>
+    <h1>⚓ WINDWARD</h1>
+    <p class="subtitle" id="t-subtitle">A Tale of the Meridian Sea</p>
+    <p class="title-flavor" id="t-flavor"></p>
+    <div class="title-form">
+      <label for="captain-name" id="t-name-label">Captain's name</label>
+      <input id="captain-name" type="text" maxlength="20" value="" placeholder="e.g. Rowan Tidewalker">
+      <button id="btn-new-game" class="btn btn-gold">⛵ New Voyage</button>
+      <button id="btn-continue" class="btn" style="display:none">📜 Continue Voyage</button>
+    </div>
+    <p class="title-credits" id="t-credits">All lands, ports, and legends herein are works of fiction.</p>
+  </div>
+</div>
+
+<!-- ======== GAME SCREEN ======== -->
+<div id="game-screen" style="display:none">
+
+  <header id="hud">
+    <div class="hud-group" id="hud-captain" title="Captain &amp; rank"></div>
+    <div class="hud-group" id="hud-date" title="Date"></div>
+    <div class="hud-group" id="hud-gold" title="Gold"></div>
+    <div class="hud-group" id="hud-fame" title="Fame"></div>
+    <div class="hud-group" id="hud-crew" title="Crew aboard / morale"></div>
+    <div class="hud-group" id="hud-food" title="Food (days of rations aboard)"></div>
+    <div class="hud-group" id="hud-water" title="Water (days aboard)"></div>
+    <div class="hud-group" id="hud-hull" title="Hull integrity"></div>
+    <div class="hud-group" id="hud-hold" title="Hold space used"></div>
+    <div class="hud-group" id="hud-wind" title="Prevailing wind">
+      <span id="wind-arrow">➤</span><span id="wind-label"></span>
+    </div>
+    <button class="btn btn-small" id="btn-sound" title="Toggle sound">🔊</button>
+    <button class="btn btn-small" id="btn-menu">☰</button>
+  </header>
+
+  <main id="main-area">
+    <canvas id="sea-canvas"></canvas>
+    <canvas id="minimap"></canvas>
+    <div id="ship-banner"></div>
+    <div id="sail-controls">
+      <div class="pad-row"><button data-d="-1,-1">↖</button><button data-d="0,-1">↑</button><button data-d="1,-1">↗</button></div>
+      <div class="pad-row"><button data-d="-1,0">←</button><button data-d="0,0" id="pad-anchor">⚓</button><button data-d="1,0">→</button></div>
+      <div class="pad-row"><button data-d="-1,1">↙</button><button data-d="0,1">↓</button><button data-d="1,1">↘</button></div>
+    </div>
+  </main>
+
+  <footer id="log-panel">
+    <div id="log"></div>
+  </footer>
+
+  <!-- generic modal -->
+  <div id="modal-veil" style="display:none">
+    <div id="modal-box">
+      <div id="modal-content"></div>
+      <div id="modal-buttons"></div>
+    </div>
+  </div>
+
+  <!-- port overlay -->
+  <div id="port-veil" style="display:none">
+    <div id="port-box">
+      <div id="port-header">
+        <div>
+          <h2 id="port-name"></h2>
+          <p id="port-desc"></p>
+        </div>
+        <div id="port-quickstats"></div>
+      </div>
+      <nav id="port-tabs"></nav>
+      <div id="port-body"></div>
+      <div id="port-footer">
+        <span id="port-hint"></span>
+        <button class="btn btn-gold" id="btn-set-sail">⛵ Set Sail</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/rng.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/data.js"></script>
+<script src="js/world.js"></script>
+<script src="js/state.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/render.js"></script>
+<script src="js/quests.js"></script>
+<script src="js/story.js"></script>
+<script src="js/combat.js"></script>
+<script src="js/sea.js"></script>
+<script src="js/port.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

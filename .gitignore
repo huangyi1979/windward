@@ -1,0 +1,10 @@
+# generated test artifact (rewritten by every test run)
+test/map.txt
+
+# local Claude Code settings (machine-specific permissions)
+.claude/settings.local.json
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
