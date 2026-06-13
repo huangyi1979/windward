@@ -11,7 +11,11 @@ defaults to Chinese when your browser language is Chinese.
 
 ## Play
 
-Serve the folder and open it in any modern browser:
+**▶ Play now in your browser: https://huangyi1979.github.io/windward/**
+
+No install needed — it runs entirely client-side on GitHub Pages.
+
+To run it locally instead, serve the folder and open it in any modern browser:
 
 ```bash
 python3 -m http.server 8000
@@ -77,6 +81,15 @@ Defeat is never the end — beaten captains wash ashore poorer but alive.
 node test/gen-test.js     # world generation: port placement & reachability
 node test/smoke-test.js   # integration: trading, sailing, combat, story, saves
 ```
+
+## Deployment
+
+The live site is hosted on **GitHub Pages**. Because the game is static files
+with no build step, deployment is automatic: the workflow in
+`.github/workflows/deploy.yml` publishes the repository root to Pages on every
+push to `main`. A `.nojekyll` file keeps the `js/` and `css/` folders from being
+processed by Jekyll. The one-time setup was enabling Pages in the repo settings
+(**Settings → Pages → Source: GitHub Actions**).
 
 ## How This Project Was Made
 
